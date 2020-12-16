@@ -1,2 +1,2 @@
 # Dealing with composite string variables
-* Syntax: multiresponse [varlist], dir() file() sym()
+* Syntax: syntax varlist(min = 1 string) [if] [in] [, DIRectory(string) FILEname(string) SYMbol(string)]
