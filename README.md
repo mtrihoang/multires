@@ -14,7 +14,7 @@ For example, in a survey on e-Cigarettes, participants were asked about which ty
 3. ``symbol`` (or ``sym``): parsing character which seperates single options.
 
 The command creates two outputs: 
-(1) dofile ``label`` for labelling newly binary variables 
+(1) dofile ``label.do`` for labelling newly binary variables 
 (2) an output file
 
 ## Example
