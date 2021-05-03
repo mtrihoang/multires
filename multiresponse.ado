@@ -17,12 +17,10 @@ foreach l of local s {
 local ++j
 
 if "``l''" == "" {
-		di "`l'"
-		di _n "Hello `j'!"
-		di as err "not allowed without `l' `j'"
-		exit 40`j'
-		}
-		}
+di as err "not allowed without `l' `j'"
+exit 40`j'
+}
+}
 		
 cd "`directory'"
 foreach multiple in `varlist' {
