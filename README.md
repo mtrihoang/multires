@@ -13,6 +13,8 @@ For example, in a survey on e-Cigarettes, participants were asked about which ty
 2. ``filename`` (or ``file``): original data file.
 3. ``symbol`` (or ``sym``): parsing character which seperates single options.
 
+``Note:`` you have to create an ``id`` variable in your dataset.
+
 The command creates two outputs: 
 (1) dofile ``label.do`` for labelling newly binary variables 
 (2) an output file
