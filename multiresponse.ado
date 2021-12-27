@@ -1,11 +1,4 @@
-* "multiresponse" command 
-* Syntax: multiresponse [varlist], dir() file() sym()
-/* 
-The program creates two outputs: 
-(1) a dofile, namely "label" for labelling new binary variables 
-(2) an output file "filename_mc", containing new binary variables
-Help: directory(): working directory which contains the original dataset, filename(), symbol(): parsing character
-*/
+* Last update: 27.12.2021
 
 program multiresponse
 version 15.1
@@ -17,10 +10,10 @@ foreach l of local s {
 local ++j
 
 if "``l''" == "" {
-di as err "not allowed without `l' `j'"
-exit 40`j'
-}
-}
+		di as err "error 40`j': missing `l'"
+		exit 40`j'
+		}
+		}
 		
 cd "`directory'"
 foreach multiple in `varlist' {
@@ -79,5 +72,3 @@ erase `v'.dta
 save `filename'_mc, replace
 use `filename', clear
 end
-
-* Example: multiresponse c11-c14, dir(D:\Depocen\Stata program\test) file(e_cigarette) sym(//)
