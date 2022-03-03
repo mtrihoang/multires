@@ -5,7 +5,7 @@
 Command **``multires``** allows to split composite string variables to binary variables. 
 For example, in a survey on programming languages, participants were asked about which programming languages they prefer. The variable ``c1`` (see data ``study.dta`` and attached ``image``) contains respondents' preferred software under composite strings. Each composite string includes single texts, separated by a parsing character ``/``. To facilitate data analysis, it is necessary to split the composite string variable into binary variables, corresponding to software.
 
-![image](https://user-images.githubusercontent.com/60907709/156552415-ec672e46-cd8f-499b-a53a-d325c56f5f3b.png)
+![image](https://user-images.githubusercontent.com/60907709/156554106-322f1ec6-5fa3-4d8d-9aae-ecb1056d7f94.png)
 
 
 ## Usage
@@ -22,5 +22,3 @@ For example, in a survey on programming languages, participants were asked about
 ## Example
 ``use "D:\multi-response-master\study.dta", clear`` <br/>
 ``multires c1 c2, dir("D:\multi-response-master") file(study) pars("/")``
-
-
