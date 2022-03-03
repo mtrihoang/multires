@@ -12,7 +12,7 @@ For example, in a survey on programming languages, participants were asked about
 ``syntax varlist(min = 1 string) [if] [in] [, DIRectory(string) FILEname(string) PARSing(string)]`` in which:
 1. ``directory`` (or ``dir``): save outputs in a certain folder.
 2. ``filename`` (or ``file``): original dataset.
-3. ``parsing`` (or ``sym``): parsing character which seperates single options.
+3. ``parsing`` (or ``pars``): parsing character which seperates single options.
 
 ``Important:``
 1. You have to create the **``id``** variable in your dataset.
