@@ -19,7 +19,7 @@ For example, in a survey on e-Cigarettes, participants were asked about which ty
 2. You need to open your dataset before running the dofile.
 
 ## Example
-``use "D:\multi-response-master\study.dta", clear``
+``use "D:\multi-response-master\study.dta", clear`` <br/>
 ``multires c1 c2, dir("D:\multi-response-master") file(study) pars("/")``
 
 
