@@ -14,8 +14,9 @@ For example, in a survey on e-Cigarettes, participants were asked about which ty
 2. ``filename`` (or ``file``): original data file.
 3. ``symbol`` (or ``sym``): parsing character which seperates single options.
 
-``Note:`` 
-1. You have to create an ``id`` variable in your dataset.
+``Important:`` 
+1. You have to create the **``id``** variable in your dataset.
+2. You need to open your dataset before running the dofile.
 
 ## Example
 ``use "D:\multi-response-master\study.dta", clear``
