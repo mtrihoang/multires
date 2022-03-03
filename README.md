@@ -21,4 +21,4 @@ For example, in a survey on programming languages, participants were asked about
 
 ## Example
 ``use "D:\multi-response-master\study.dta", clear`` <br/>
-``multires c1 c2, dir("D:\multi-response-master") file(study) pars("/")``
+``multires c1 c2, dir("D:\multi-response-master") file(study) pars(/)``
