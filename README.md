@@ -17,7 +17,6 @@ For example, in a survey on programming languages, participants were asked about
 ``Important:``
 1. Make sure that your dataset contains a unique **``id``** variable.
 2. You need to open your dataset before running the dofile.
-3. If comma ``,`` is a parsing character then command **``multires``** will change it into ``//`` and generate a backup dataset.  
 
 ## Example
 ``use "D:\multi-response-master\study.dta", clear`` <br/>
