@@ -2,22 +2,22 @@
 
 ## Introduction
 
-Command **``multires``** allows to split composite string variables to binary variables. 
-For example, in a survey on programming languages, participants were asked about which programming languages they prefer. The variable ``c1`` (see data ``study.dta`` and attached ``image``) contains respondents' preferred software under composite strings. Each composite string includes single texts, separated by a parsing character ``/``. To facilitate data analysis, it is necessary to split the composite string variable into binary variables, corresponding to software.
+Command **``multires``** allows parsing composite strings to binary variables.  
+
+For example, in a survey on programming languages, participants were asked about which programming languages they prefer. The variable ``c1`` (see the ``study.dta`` data and the attached ``image``) contains respondents' preferred software under composite strings. Each composite string includes single texts, separated by a parsing character ``/``. To facilitate data analysis, it is necessary to split the composite string variable into binary variables, corresponding to software.
 
 ![image](https://user-images.githubusercontent.com/60907709/156554106-322f1ec6-5fa3-4d8d-9aae-ecb1056d7f94.png)
 
 
 ## Usage
-``syntax varlist(min = 1 string) [if] [in] [, DIRectory(string) FILEname(string) PARSing(string)]`` in which:
-1. ``directory`` (or ``dir``): save outputs in a certain folder.
-2. ``filename`` (or ``file``): original dataset.
-3. ``parsing`` (or ``pars``): parsing character which seperates single options.
+``syntax varlist(min = 1 string) [if] [in] [, FILEname(string) PARSing(string)]`` in which:
+- ``filename`` (or ``file``): the directory contains the original data. 
+- ``parsing`` (or ``pars``): a parsing character.
 
 ``Important:``
-1. Make sure that your dataset contains a unique **``id``** variable.
-2. You need to open your dataset before running the dofile.
+1. If your data already included the ``id`` variable, it will be renamed ``old_id``.
+2. You need to open your dataset before running the do file as the syntax requires a list of key variables.
 
 ## Example
-``use "D:\multi-response-master\study.dta", clear`` <br/>
-``multires c1 c2, dir("D:\multi-response-master") file(study) pars(/)``
+``use study, clear`` <br/>
+``multires c1-c4, file("./study") pars(/)``

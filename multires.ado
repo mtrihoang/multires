@@ -1,27 +1,42 @@
 program multires
 version 15.1
-syntax varlist(min = 1 string) [if] [in] [, DIRectory(string) FILEname(string) PARSing(string)]
+syntax varlist(min = 1 string) [if] [in] [, FILEname(string) PARSing(string)]
 
-local s directory filename parsing
+local components filename parsing
+
 local j = 0
 
-foreach l of local s {
+foreach com of local components {
     local ++j
-    if "``l''" == "" {
-        di as err "error 40`j': missing `l'"
+    if "`com'" == "" {
+        display as error "error 40`j': missing `com'"
         exit 40`j'
     }
 }
 
-cd "`directory'"
+local filename = subinstr("`filename'", ".dta", "", .)
+
+use "`filename'", clear
+cd
+
+capture confirm variable id
+if _rc == 111 {
+	gen id = _n
+}
+else {
+	rename id old_id
+	gen id = _n
+}
+
+tempfile tempfilename
+save `tempfilename', replace
 
 if strpos("`parsing'", ",") > 0 {
-    save `filename'_b, replace
     local parsing = "//"
     foreach multiple in `varlist' {
         replace `multiple' = subinstr(`multiple', ",", "//", .)
     }
-    save `filename', replace
+    save `tempfilename', replace
 }
 
 foreach multiple in `varlist' {
@@ -45,53 +60,57 @@ foreach multiple in `varlist' {
     preserve
     contract v1 v
     gen quote = char(34) // compound double quotes
-    gen label = "la var " + "`multiple'" + v1 + " " + quote + v + quote
-    keep label
-    save `multiple'_label, replace
+    gen var_label = "la var " + "`multiple'" + v1 + " " + quote + v + quote
+    keep var_label
+    save "`multiple'_label", replace
     restore
 
     drop num v `multiple'
     gen `multiple' = 1
     reshape wide `multiple', i(id) j(v1) string
+	
     foreach v of varlist `multiple'* {
-        replace `v' = 0 if `v' == .
+        replace `v' = 0 if missing(`v')
     }
+	
     sort id
-    save `multiple', replace
-    use `filename', clear
+    save "`multiple'", replace
+    use "`tempfilename'", clear
 }
+
+cd
 
 local getuse use
 foreach v in `varlist'  {
     `getuse' `v'_label
     local getuse append using
-    erase `v'_label.dta
+    erase "`v'_label.dta"
 }
-save label, replace
+save "label_all", replace
 
 count
 global N = `r(N)'
 
 forval i = 1/$N {
-    local text`i' = label[`i'] // add variable labels
+    local text`i' = var_label[`i'] // add variable labels
 }
 
-erase label.dta
+erase "label_all.dta"
 
-use `filename', clear
+use "`tempfilename'", clear
 sort id
 
 foreach v in `varlist'  {
-    merge 1:1 id using `v'
+    merge 1:1 id using "`v'"
     drop _merge
     rename `v' q`v'
     order q`v' `v'*
-    erase `v'.dta
+    erase "`v'.dta"
 }
 
 forval i = 1/$N {
     `text`i'' // label (new) binary variables
 }
 
-save `filename'_m, replace // final dataset contains (new) binary variables
+save "`filename'_split", replace // the final dataset contains (new) binary variables
 end
