@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Command **``multires``** allows parsing composite strings to binary variables.  
+Command **``multires``** allows parsing composite strings.  
 
 For example, in a survey on programming languages, participants were asked about which programming languages they prefer. The variable ``c1`` (see the ``study.dta`` data and the attached ``image``) contains respondents' preferred software under composite strings. Each composite string includes single texts, separated by a parsing character ``/``. To facilitate data analysis, it is necessary to split the composite string variable into binary variables, corresponding to software.
 
