@@ -22,5 +22,5 @@ For example, in a survey on programming languages, participants were asked about
 **Example:**
 ```
 use study, clear
-multires c1-c4, file("./study") pars(/)
+multires c1 c2, file("./study") pars(/)
 ```
