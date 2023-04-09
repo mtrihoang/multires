@@ -13,10 +13,11 @@ For example, in a survey on programming languages, participants were asked about
 ``syntax varlist(min = 1 string) [if] [in] [, FILEname(string) PARSing(string)]`` in which:
 - ``filename`` (or ``file``): the directory contains the original data. 
 - ``parsing`` (or ``pars``): a parsing character.
+- `filename_split`: the final dataset contains binary variables (generated after running the do file).
 
 ``Important:``
-1. If your data already included the ``id`` variable, it will be renamed ``old_id``.
-2. You need to open your dataset before running the do file as the syntax requires a list of key variables.
+- If your dataset, `filename`, already included the ``id`` variable, it will be renamed ``old_id`` in the final dataset `filename_split`.
+- You need to open your dataset before running the do file as the syntax always requires a list of key variables.
 
 ## Example
 ``use study, clear`` <br/>
