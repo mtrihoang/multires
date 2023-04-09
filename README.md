@@ -15,11 +15,11 @@ For example, in a survey on programming languages, participants were asked about
 - ``parsing`` (or ``pars``): a parsing character.
 - `filename_split`: the final dataset contains binary variables (generated after running the do file).
 
-Note:
+**Note:**
 - If your dataset, `filename`, already included the ``id`` variable, it will be renamed ``old_id`` in the final dataset `filename_split`.
 - You need to open your dataset before running the do file as the syntax always requires a list of key variables.
 
-Example:
+**Example:**
 ```
 use study, clear
 multires c1-c4, file("./study") pars(/)
