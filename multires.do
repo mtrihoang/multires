@@ -75,7 +75,7 @@ count
 global N = `r(N)'
 
 forval i = 1/$N {
-local text`i' = label[`i'] // for labelling variable
+local text`i' = label[`i']
 }
 
 erase label.dta
