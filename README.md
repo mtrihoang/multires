@@ -27,6 +27,11 @@ multires c3 c4 using "./study", pars(",")
 use study, clear
 multires c5 c6 if id <= 10 using "./study"
 
-use study, clear
 multires c1 c2 if id <= 10 using "./study", pars("/")
+```
+
+## Installation
+
+```
+net install multires, from(https://raw.githubusercontent.com/mtrihoang/multires/master) replace
 ```
