@@ -1,0 +1,6 @@
+v 1
+d multires: Dealing with composite string variables
+d Minh Tri Hoang, University of Bonn
+f multires.ado
+f multires.sthlp
+f study.dta

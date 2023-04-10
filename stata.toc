@@ -1,0 +1,3 @@
+v 1
+d Minh Tri Hoang, University of Bonn
+p multires -- dealing with composite string variables

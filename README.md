@@ -10,10 +10,10 @@ For example, in a survey on programming languages, participants were asked about
 
 
 ## Usage
-``syntax varlist(min = 1 string) [if] [in] [, FILEname(string) PARSing(string)]`` in which:
-- ``filename`` (or ``file``): the directory contains the original data. 
+``multires varlist [if exp] [in range] using filename [, PARSing(string)]`` in which:
+- ``filename``: the directory contains the original data. 
 - ``parsing`` (or ``pars``): a parsing character.
-- `filename_split`: the final dataset contains binary variables (generated after running the do file).
+- `filename_split`: the final dataset contains binary variables (generated after running the do file/ado file).
 
 **Note:**
 - If your dataset, `filename`, already included the ``id`` variable, it will be renamed ``old_id`` in the final dataset `filename_split`.
@@ -22,5 +22,11 @@ For example, in a survey on programming languages, participants were asked about
 **Example:**
 ```
 use study, clear
-multires c1 c2, file("./study") pars(/)
+multires c3 c4 using "./study", pars(",")
+
+use study, clear
+multires c5 c6 if id <= 10 using "./study"
+
+use study, clear
+multires c1 c2 if id <= 10 using "./study", pars("/")
 ```

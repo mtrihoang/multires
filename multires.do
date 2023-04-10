@@ -2,9 +2,9 @@ program drop _all
 
 program multires
 version 15.1
-syntax varlist(min = 1 string) [if] [in] [, FILEname(string) PARSing(string)]
+syntax varlist(min = 1 string) [if] [in] using/ [, PARSing(string)]
 
-local components filename parsing
+local components varlist using
 
 local j = 0
 
@@ -16,10 +16,14 @@ foreach com of local components {
     }
 }
 
-local filename = subinstr("`filename'", ".dta", "", .)
+local filename = subinstr("`using'", ".dta", "", .)
 
 use "`filename'", clear
 cd
+
+tempvar touse 
+mark `touse' `if' `in'
+keep if `touse'
 
 capture confirm variable id
 if _rc == 111 {
@@ -33,7 +37,7 @@ else {
 tempfile tempfilename
 save `tempfilename', replace
 
-if strpos("`parsing'", ",") > 0 {
+if (strpos("`parsing'", ",") > 0) | (missing("`parsing'")) {
     local parsing = "//"
     foreach multiple in `varlist' {
         replace `multiple' = subinstr(`multiple', ",", "//", .)
