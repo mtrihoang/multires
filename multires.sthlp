@@ -14,25 +14,25 @@ help for {hi:multires}
 [{cmd:in} {it:range}] 
 {cmdab:using}{it: filename}
 [{cmd:,}
-{cmdab:PARS:ing(}{it:string}{cmd:)}]
+{cmdab:pars:ing(}{it:string}{cmd:)}]
 
 
 {title:Description}
 
 {p 4 4 2}
-{cmd:multires} splits composite strings, separated by a parsing character, to binary variables. By default, strings are parsed on "slash slash" (//). 
+{cmd:multires} splits composite strings, separated by a parsing character, to binary variables. 
 
 
 {title:Remarks}
 
 {p 4 4 2}
 {cmd:multires} requires openning a dataset before running the command as key variables are main arguments.
-
+If the {cmd:id} variable already exists in your original dataset, it will be renamed {cmd:old_id} in the final dataset {it:filename_split}.
 
 {title:Options}
 
 {p 4 4 2}
-{cmd:parsing} specifies the parsing character used to split string variables.
+{cmd:parsing} specifies the parsing character used to split string variables. By default, strings are parsed on "slash slash" (//).
 
 
 {title:Examples}
