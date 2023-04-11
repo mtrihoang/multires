@@ -29,6 +29,7 @@ help for {hi:multires}
 {cmd:multires} requires openning a dataset before running the command as key variables are main arguments.
 If the {cmd:id} variable already exists in your original dataset, it will be renamed {cmd:old_id} in the final dataset {it:filename_split}.
 
+
 {title:Options}
 
 {p 4 4 2}
