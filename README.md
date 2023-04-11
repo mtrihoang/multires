@@ -34,4 +34,5 @@ multires c1 c2 if id <= 10 using "./study", pars("/")
 
 ```
 net install multires, from(https://raw.githubusercontent.com/mtrihoang/multires/master) replace
+help multires
 ```
